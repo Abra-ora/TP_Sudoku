@@ -27,11 +27,11 @@ public class SudokuPPC {
     public void solve(ArrayList<String> sudokuCvs, boolean withAllSolutions, boolean isGreaterThanSudoku) {
         buildModel(sudokuCvs, isGreaterThanSudoku);
         if(withAllSolutions){
-            while(model.getSolver().solve()){
+            while(model.getSolver().solve()) {
                 printGrid();
                 model.getSolver().printStatistics();
             }
-        }else{
+            }else{
             model.getSolver().solve();
             printGrid();
             model.getSolver().printStatistics();
@@ -98,7 +98,6 @@ public class SudokuPPC {
                     String[] pairOperation = pairOperations[j].split(";");
                     for(int k = 0; k < pairOperation.length; k++){
                         if(!Objects.equals(pairOperation[k], "|")){
-                            System.out.println("operation = "+pairOperation[k]+"  k = "+ k + "  i = "+i+"  j = "+j);
                             if(k == 0){
                                 model.arithm(rows[i][j],pairOperation[k], rows[i+1][j]).post();
                             }else if (k == 1){
