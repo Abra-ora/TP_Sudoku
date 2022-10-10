@@ -1,14 +1,12 @@
-package Utils;
-
-import org.apache.commons.collections4.BidiMap;
-import org.apache.commons.collections4.bidimap.DualLinkedHashBidiMap;
+package utils;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class SudokuAlphabet {
-//    static HashMap<String, Integer> alphabet = new HashMap<>();
-    BidiMap<String, Integer> alphabet = new DualLinkedHashBidiMap<>();
-    public SudokuAlphabet(){
+    Map<String, Integer> alphabet = new HashMap<>();
+
+    public SudokuAlphabet() {
         alphabet.put("A", 10);
         alphabet.put("B", 11);
         alphabet.put("C", 12);
@@ -17,16 +15,23 @@ public class SudokuAlphabet {
         alphabet.put("F", 15);
         alphabet.put("G", 16);
     }
-    public BidiMap<String, Integer> getAlphabet(){
+
+    public Map<String, Integer> getAlphabet() {
         return alphabet;
     }
 
-    public Integer getValue(String key){
+    public Integer getValue(String key) {
         return alphabet.get(key);
     }
 
-    public String getKey(Integer value){
-        return alphabet.getKey(value);
+    public String getKey(Integer value) {
+        String result = null;
+        for (Map.Entry<String, Integer> entry : alphabet.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                result = entry.getKey();
+            }
+        }
+        return result;
     }
-
 }
+
