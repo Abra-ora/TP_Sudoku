@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class SudokuFormat {
     public static void checkSudokuFormat(boolean isCorrect) throws SudokuFormatIsNotCorrectException {
